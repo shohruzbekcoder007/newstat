@@ -17,7 +17,7 @@ export default function Header() {
             <img src={uzstat} alt="alt img" srcSet="" />
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Statistika hisobotini taqdim etish <br/>
-            axborot tizimi
+            <p>axborot tizimi</p>
           </Typography>
           <Stack direction="row" spacing={2}>
             <Language/>

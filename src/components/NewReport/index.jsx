@@ -5,6 +5,8 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import CreateTable from './table';
+import ChipStatus from '../ChipsStatus';
 
 export default function CreateReport() {
   const [open, setOpen] = React.useState(false);
@@ -20,28 +22,28 @@ export default function CreateReport() {
   return (
     <div>
       <Button variant="outlined" onClick={handleClickOpen}>
-        Open alert dialog
+        Hisobot yaratish
       </Button>
       <Dialog
+        fullWidth={true}
+        maxWidth='md'
         open={open}
         onClose={handleClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">
-          {"Use Google's location service?"}
+          <ChipStatus />
         </DialogTitle>
-        <DialogContent>
+        {/* <DialogContent>
           <DialogContentText id="alert-dialog-description">
             Let Google help apps determine location. This means sending anonymous
             location data to Google, even when no apps are running.
           </DialogContentText>
-        </DialogContent>
+        </DialogContent> */}
+        <CreateTable />
         <DialogActions>
-          <Button onClick={handleClose}>Disagree</Button>
-          <Button onClick={handleClose} autoFocus>
-            Agree
-          </Button>
+          <Button onClick={handleClose}>Yopish</Button>
         </DialogActions>
       </Dialog>
     </div>

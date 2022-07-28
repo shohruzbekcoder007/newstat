@@ -57,14 +57,13 @@ export default function ChipStatus() {
   return (
     <div>
       <FormControl sx={{width: "100%" }}>
-        <InputLabel id="demo-multiple-chip-label">Hisobot holati</InputLabel>
+        <InputLabel id="demo-controlled-open-select-label">Soha tanlash</InputLabel>
         <Select
-          labelId="demo-multiple-chip-label"
-          id="demo-multiple-chip"
-          multiple
+          labelId="demo-controlled-open-select-label"
+          id="demo-controlled-open-select"
           value={personName}
           onChange={handleChange}
-          input={<OutlinedInput id="select-multiple-chip" label="Hisobot holati" />}
+          label="Soha tanlash"
           renderValue={(selected) => (
             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
               {selected.map((value) => (
