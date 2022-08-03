@@ -7,6 +7,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import CreateTable from './table';
 import ChipStatus from '../ChipsStatus';
+import CloseIcon from '@mui/icons-material/Close';
 
 export default function CreateReport() {
   const [open, setOpen] = React.useState(false);
@@ -32,6 +33,9 @@ export default function CreateReport() {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
+        <DialogActions>
+          <Button onClick={handleClose}><CloseIcon sx={{color: 'red'}} /></Button>
+        </DialogActions>
         <DialogTitle id="alert-dialog-title">
           <ChipStatus />
         </DialogTitle>
@@ -42,9 +46,7 @@ export default function CreateReport() {
           </DialogContentText>
         </DialogContent> */}
         <CreateTable />
-        <DialogActions>
-          <Button onClick={handleClose}>Yopish</Button>
-        </DialogActions>
+        
       </Dialog>
     </div>
   );

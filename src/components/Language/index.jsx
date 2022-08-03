@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
@@ -9,6 +9,8 @@ import ArchiveIcon from '@mui/icons-material/Archive';
 import FileCopyIcon from '@mui/icons-material/FileCopy';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+
+const flagAPI = 'https://countryflagsapi.com/png/';
 
 const StyledMenu = styled((props) => (
   <Menu
@@ -51,8 +53,14 @@ const StyledMenu = styled((props) => (
   },
 }));
 
+const languages = [
+  { value: `O'zbekcha`, flag: 'uz' },
+  { value: `Ruscha`, flag: 'ru' },
+]
+
 export default function Language() {
-  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -85,22 +93,13 @@ export default function Language() {
         open={open}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose} disableRipple>
-          <EditIcon />
-          O'zbekcha
-        </MenuItem>
-        <MenuItem onClick={handleClose} disableRipple>
-          <FileCopyIcon />
-          Ruscha
-        </MenuItem>
-        <MenuItem onClick={handleClose} disableRipple>
-          <FileCopyIcon />
-          Uzbekcha
-        </MenuItem>
-        <MenuItem onClick={handleClose} disableRipple>
-          <FileCopyIcon />
-          English
-        </MenuItem>
+        {languages.map(items => (
+          <MenuItem onClick={handleClose} disableRipple>
+            <img src={`https://flagcdn.com/w20/${items.flag}.png`}
+              style={{ width: '22px', height: '14px', marginRight: '6px' }} />
+            {items.value}
+          </MenuItem>
+        ))}
       </StyledMenu>
     </div>
   );

@@ -20,16 +20,15 @@ const MenuProps = {
 };
 
 const names = [
-  'Oliver Hansen',
-  'Van Henry',
-  'April Tucker',
-  'Ralph Hubbard',
-  'Omar Alexander',
-  'Carlos Abbott',
-  'Miriam Wagner',
-  'Bradley Wilkerson',
-  'Virginia Andrews',
-  'Kelly Snyder',
+  'Демография ва меҳнат статистикаси бошқармаси',
+  'Ижтимоий соҳа ва барқарор ривожланиш статистикаси бошқармаси',
+  'Инвеститсиялар ва қурилиш статистикаси бошқармаси',
+  'Ишбилармонлик муҳити кузатувлари, тадбиркорликни ривожлантириш статистикаси бошқармаси',
+  'Қишлоқ хўжалиги ва экология статистикаси бошқармаси',
+  'Нархлар статистикаси бошқармаси',
+  'Саноат статистикаси бошқармаси',
+  'Ташқи иқтисодий фаолият ва савдо статистикаси бошқармаси',
+  'Хизматлар соҳаси статистикаси бошқармаси',
 ];
 
 function getStyles(name, personName, theme) {
@@ -56,20 +55,17 @@ export default function ChipStatus() {
 
   return (
     <div>
-      <FormControl sx={{width: "100%" }}>
-        <InputLabel id="demo-controlled-open-select-label">Soha tanlash</InputLabel>
+      <FormControl sx={{ width: "100%" }}>
+        <InputLabel id="demo-simple-select-label">Soha tanlash</InputLabel>
         <Select
-          labelId="demo-controlled-open-select-label"
-          id="demo-controlled-open-select"
+          id="demo-simple-select-label"
           value={personName}
           onChange={handleChange}
           label="Soha tanlash"
           renderValue={(selected) => (
-            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
-              {selected.map((value) => (
-                <Chip key={value} label={value} />
-              ))}
-            </Box>
+                <MenuItem>
+                  {selected}
+                </MenuItem >
           )}
           MenuProps={MenuProps}
         >
